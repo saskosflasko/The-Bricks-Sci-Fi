@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bricks Sci-Fi</title>
+  <!-- Uvoz futurističnega fonta -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+  <div id="leaderboard">
+    <h3>Leaderboard</h3>
+    <ol id="leaderboardList"></ol>
+  </div>  
+  <div id="gameContainer">
+    <h1>The Bricks Sci-Fi</h1>
+    <div id="stats">
+      <span id="score">Score: 0</span>
+      <span id="time">Time: 0 s</span>
+      <span id="level">Level: 1</span>
+      <span id="bestScore">Best: 0</span>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="controls">
+      <button id="toggleBtn">Start</button>
+      <button id="resetBtn">Reset</button>
+      <button id="aboutBtn">Vizitka</button>
+      <button id="rulesBtn">Rules</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
