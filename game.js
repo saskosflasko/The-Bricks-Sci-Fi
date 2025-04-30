@@ -304,19 +304,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("aboutBtn").addEventListener("click", function () {
     swal({
-      title: "Avtor igre",
-      text: "Avtor: Sašo Simčič, 4.RB",
+      title: "Game Author",
+      text: "Author: Sašo Simčič, 4.RB",
       icon: "info",
-      button: "Zapri"
+      button: "Close"
     });
   });
 
   document.getElementById("rulesBtn").addEventListener("click", function () {
     swal({
-      title: "Pravila igre",
-      text: "Premikaj plošček s puščicama levo/desno.\nRazbijaj opeke z žogico.\nIzgubiš, če ti žogica pade mimo ploščka.\nRazbij vse opeke za zmago!",
+      title: "Game Rules",
+      text: "Move the paddle with the left/right arrow keys.\nBreak the bricks with the ball.\nYou lose if the ball falls past the paddle.\nBreak all the bricks to win!",
       icon: "info",
-      button: "Razumem"
+      button: "Got it"
     });
   });
 
