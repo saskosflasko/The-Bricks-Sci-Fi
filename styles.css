@@ -20,8 +20,9 @@ body {
   margin: 30px auto;
   max-width: 900px;
   padding: 20px;
-  border: 2px solid #00ffff;
-  box-shadow: 0 0 20px #00ffff;
+  border: 2px solid #ff0066;
+  box-shadow: 0 0 20px #ff0066;
+
   border-radius: 10px;
 }
 

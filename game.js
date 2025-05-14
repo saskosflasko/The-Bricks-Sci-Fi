@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("gameCanvas");
   const ctx = canvas.getContext("2d");
   canvas.width = 800;
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let ballRadius = 8;
   let ballX = canvas.width / 2;
   let ballY = canvas.height - 30;
-  let ballSpeed = 4;
+  let ballSpeed = 6;
   let ballDX = ballSpeed;
   let ballDY = -ballSpeed;
 
@@ -36,12 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
   let leftPressed = false;
 
   let brickRowCount = 5;
-  let brickColumnCount = 8;
   let brickWidth = 75;
   let brickHeight = 20;
   let brickPadding = 10;
   let brickOffsetTop = 30;
-  let brickOffsetLeft = 30;
+  
+  // 🔧 Izračunaj število stolpcev glede na širino platna
+  let brickColumnCount = Math.floor((canvas.width + brickPadding) / (brickWidth + brickPadding));
+
+  // 🔧 Izračunaj zamik za centriranje
+  let brickOffsetLeft = (canvas.width - (brickColumnCount * (brickWidth + brickPadding) - brickPadding)) / 2;
+
   let bricks = [];
 
   let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
@@ -117,10 +122,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function updateLeaderboardDisplay() {
     leaderboardElem.innerHTML = "";
-    leaderboard.forEach((entry, index) => {
+    leaderboard.forEach((entry) => {
       const li = document.createElement("li");
       li.textContent = `${entry.score} pts – ${entry.time}s`;
-    leaderboardElem.appendChild(li);
+      leaderboardElem.appendChild(li);
     });
   }
 
@@ -263,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  document.addEventListener("keydown", function(e) {
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Right" || e.key === "ArrowRight") {
       rightPressed = true;
     } else if (e.key === "Left" || e.key === "ArrowLeft") {
@@ -279,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  document.addEventListener("keyup", function(e) {
+  document.addEventListener("keyup", function (e) {
     if (e.key === "Right" || e.key === "ArrowRight") {
       rightPressed = false;
     } else if (e.key === "Left" || e.key === "ArrowLeft") {
@@ -287,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  toggleBtn.addEventListener("click", function() {
+  toggleBtn.addEventListener("click", function () {
     if (gameRunning) {
       pauseGame();
       toggleBtn.textContent = "Start";
@@ -297,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  resetBtn.addEventListener("click", function() {
+  resetBtn.addEventListener("click", function () {
     resetGame();
     toggleBtn.textContent = "Start";
   });
@@ -307,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function() {
       title: "Game Author",
       text: "Author: Sašo Simčič, 4.RB",
       icon: "info",
-      button: "Close"
+      button: "Close",
     });
   });
 
@@ -316,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function() {
       title: "Game Rules",
       text: "Move the paddle with the left/right arrow keys.\nBreak the bricks with the ball.\nYou lose if the ball falls past the paddle.\nBreak all the bricks to win!",
       icon: "info",
-      button: "Got it"
+      button: "Got it",
     });
   });
 
